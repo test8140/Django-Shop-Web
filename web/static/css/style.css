@@ -363,7 +363,7 @@ color: #fff;
 	margin-bottom:25px;
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;	
+	-webkit-transition:all 0.3s ease-in-out;
 }
 
 .Portfolio-box img:hover {
@@ -375,6 +375,7 @@ color: #fff;
 	color:#fff;
 	text-decoration:none;
 }
+
 img {
    max-width:100%;
 }
