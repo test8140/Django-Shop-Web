@@ -22,29 +22,35 @@
 
     </div>
     <div class="portfolioContainer wow fadeInUp delay-04s">
-        <!--<div class=" Portfolio-box printdesign"> //компьютеры
-            <a href="img/Portfolio-pic1.jpg"><img src="{% static 'img/Portfolio-pic1.jpg' %}" alt=""></a>
-            <h3>Foto Album</h3>
-            <p>Print Design</p>
-        </div>
-       <div class="Portfolio-box webdesign">  //ноутбуки
-            <a href="img/Portfolio-pic2.jpg"><img src="{% static 'img/Portfolio-pic2.jpg' %}" alt=""></a>
-            <h3>Luca Theme</h3>
-            <p>Web Design</p>
-        </div> -->
         {% for post in pr %}
+        {% if post.availability %}
+        {% if post.group == 'mobile' %}
         <div class="Portfolio-box branding"> <!-- смартфоны -->
             <a href="img/Portfolio-pic3.jpg"><img src="{{ post.img.url }}" alt="" style="width: 200px; height: 250px;"></a>
             <h3>{{ post.name }}</h3>
             <p>Цена: {{ post.price }}</p>
         </div>
+        {% elif post.group == 'notebook' %}
+        <div class="Portfolio-box webdesign">  <!-- ноутбуки -->
+            <a href="img/Portfolio-pic2.jpg"><img src="{{ post.img.url }}" alt="" style="width: 300px; height: 200px;"></a>
+            <h3>{{ post.name }}</h3>
+            <p>Цена: {{ post.price }}</p>
+        </div>
+        {% elif post.group == 'pc' %}
+        <div class=" Portfolio-box printdesign"> <!--компьютеры -->
+            <a href="img/Portfolio-pic1.jpg"><img src="{{ post.img.url }}" alt="" style="width: 200px; height: 250px;"></a>
+            <h3>{{ post.name }}</h3>
+            <p>Цена: {{ post.price }}</p>
+        </div>
+        {% else %}
+        <div class=" Portfolio-box photography"> <!-- аксесуары -->
+            <a href="img/Portfolio-pic4.jpg"><img src="{{ post.img.url }}" alt="" style="width: 200px; height: 250px;"></a>
+            <h3>{{ post.name }}</h3>
+            <p>Цена: {{ post.price }}</p>
+        </div>
+        {% endif %}
+        {% endif %}
         {% endfor %}
-        
-        <!-- <div class=" Portfolio-box photography"> //аксесуары
-            <a href="img/Portfolio-pic4.jpg"><img src="{% static 'img/Portfolio-pic4.jpg' %}" alt=""></a>
-            <h3>Vinyl Record</h3>
-            <p>Photography</p>
-        </div> -->
     </div>
 </section>
 <!--main-section-end-->
