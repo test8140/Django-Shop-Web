@@ -5,9 +5,18 @@
 {% endblock title_page %}
 
 {% block content %}
+{% if user.is_authenticated  %}
+<div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 20px;">
+    <a href="{% url 'reg' %}"><button type="submit" class="btn btn-ouline-info">Профиль</button></a>
+    <a href="{% url 'exit' %}"><button type="submit" class="btn btn-ouline-info">Выход</button></a>
+</div>
+{% else %}
+<div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 20px;">
+    <a href="{% url 'reg' %}"><button type="submit" class="btn btn-ouline-info">Регистрация</button></a>
+    <a href="{% url 'login' %}"><button type="submit" class="btn btn-ouline-info">Вход</button></a>
+</div>
+{% endif %}
 <section class="main-section paddind" id="Portfolio">
-    <!--main-section-start-->
-    <div class="container">
         <h2>Магазин</h2>
         <h6>У нас большой асортимент товаров.</h6>
         <div class="portfolioFilter">
@@ -20,7 +29,7 @@
             </ul>
         </div>
 
-    </div>
+    
     <div class="portfolioContainer wow fadeInUp delay-04s">
         {% for post in pr %}
         {% if post.availability %}

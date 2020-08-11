@@ -13,6 +13,8 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'users.apps.UsersConfig',
     'web.apps.WebConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -96,3 +98,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 MEDIA_URL = '/pictures/'
+
+LOGIN_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
